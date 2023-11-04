@@ -25,5 +25,24 @@ const ENNVY = {
     type: 1
 }
 
-const ALL_COMMANDS = [TEST, COIN, NUMBER, ENNVY]
+const IMAGE = {
+    name: "image",
+    description: "Get a random image",
+    type: 1
+}
+
+const BOLD = {
+    name: "bold",
+    description: "return your text in bold",
+    type: 1,
+    options: [
+        {
+            name: "text",
+            type: 3,
+            description: "just type"
+        }
+    ]
+}
+
+const ALL_COMMANDS = [TEST, COIN, NUMBER, ENNVY, IMAGE, BOLD]
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS)

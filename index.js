@@ -4,7 +4,7 @@ import{
     InteractionType,
     InteractionResponseType
 } from 'discord-interactions'
-import { verifyDiscordRequest, faq, coin, number, ennvy } from './utils/index.js'
+import { verifyDiscordRequest, faq, coin, number, ennvy, images } from './utils/index.js'
 
 
 const app = express()
@@ -59,7 +59,7 @@ app.post('/interactions', async (req, res, next) => {
               });
         }
 
-        const url = ""
+        const url = images[Math.round(Math.random()*images.length)]
         if (command === 'image'){
             return res.send({
                 type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
@@ -72,6 +72,15 @@ app.post('/interactions', async (req, res, next) => {
                     }]
                 }
             })
+        }
+
+        if (command === 'bold'){
+            return res.send({
+                type: 4,
+                data: {
+                  content: `**${data.options[0].value}**`,
+                },
+              });
         }
     }
 
